@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Streaming Viewer</title>
+    <style>
+      :root {
+        --container-height: 640px;
+        --main-color: #1d1d1d;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100vh;
+      }
+      main {
+        position: relative;
+        height: var(--container-height);
+        border: 2px solid var(--main-color);
+        background-color: var(--main-color);
+      }
+      h1 {
+        position: absolute;
+        top: -50px;
+        width: 100%;
+        margin: 5px;
+        text-align: center;
+        color: #555;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 32px;
+      }
+      ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      iframe {
+        width: 400px;
+        height: var(--container-height);
+      }
+      ul::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 54px;
+        bottom: 0;
+        background-color: var(--main-color);
+      }
+      ul li {
+        margin-right: 2px;
+      }
+      ul li:last-child {
+        margin-right: 0;
+      }
+      @media (max-width: 400px) {
+        :root {
+          --container-height: 80vh;
+        }
+        body {
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        main {
+          border: 0;
+          background-color: transparent;
+        }
+        h1 {
+          position: relative;
+          top: 0;
+          font-size: 28px;
+        }
+        ul {
+          flex-direction: column;
+        }
+        ul::after {
+          display: none;
+        }
+        ul li {
+          margin-bottom: 10px;
+        }
+        ul li:last-child {
+          margin-bottom: 0;
+        }
+        iframe {
+          width: calc(90vw);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Stock Streaming Viewer</h1>
+      <ul>
+        <li>
+          <iframe
+            src="http://m.finance.daum.net/myfeed"
+            frameborder="0"
+          ></iframe>
+        </li>
+        <li>
+          <iframe
+            src="https://m.kr.investing.com/indices/nq-100-futures-streaming-chart"
+            frameborder="0"
+          ></iframe>
+        </li>
+        <li>
+          <iframe
+            src="https://m.kr.investing.com/indices/us-30-futures-streaming-chart"
+            frameborder="0"
+          ></iframe>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
