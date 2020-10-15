@@ -60,7 +60,8 @@
       ul li:last-child {
         margin-right: 0;
       }
-      @media (max-width: 400px) {
+      @media only screen and (-webkit-device-pixel-ratio: 2) and (max-width: 768px),
+        only screen and (-webkit-device-pixel-ratio: 3) and (max-width: 768px) {
         :root {
           --container-height: 80vh;
         }
