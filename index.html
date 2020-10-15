@@ -108,17 +108,29 @@
         </li>
         <li>
           <iframe
+            id="investingNq"
             src="https://m.kr.investing.com/indices/nq-100-futures-streaming-chart"
             frameborder="0"
           ></iframe>
         </li>
         <li>
           <iframe
+            id="investingUs"
             src="https://m.kr.investing.com/indices/us-30-futures-streaming-chart"
             frameborder="0"
           ></iframe>
         </li>
       </ul>
     </main>
+    <script>
+      const investingNq = document.querySelector("#investingNq");
+      const investingUs = document.querySelector("#investingUs");
+      const investingNqSrc = investingNq.getAttribute("src");
+      const investingUsSrc = investingNq.getAttribute("src");
+      setInterval(() => {
+        investingNq.setAttribute("src", investingNqSrc);
+        investingUs.setAttribute("src", investingUsSrc);
+      }, 3600000);
+    </script>
   </body>
 </html>
